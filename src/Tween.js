@@ -134,6 +134,10 @@ TWEEN.Tween = function (object) {
 
 	};
 
+	this.switch = function (obj) {
+		_object = obj
+	}
+
 	this.start = function (time) {
 
 		TWEEN.add(this);
