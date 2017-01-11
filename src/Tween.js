@@ -121,6 +121,7 @@ TWEEN.Tween = function (object) {
 	var _onUpdateCallback = null;
 	var _onCompleteCallback = null;
 	var _onStopCallback = null;
+	var _lastUpdateTime = 0;
 
 	this.to = function (properties, duration) {
 
@@ -136,6 +137,7 @@ TWEEN.Tween = function (object) {
 
 	this.switch = function (obj) {
 		_object = obj
+		this.update(_lastUpdateTime)
 	}
 
 	this.start = function (time) {
@@ -342,6 +344,8 @@ TWEEN.Tween = function (object) {
 		if (time < _startTime) {
 			return true;
 		}
+
+		_lastUpdateTime = time
 
 		if (_onStartCallbackFired === false) {
 
