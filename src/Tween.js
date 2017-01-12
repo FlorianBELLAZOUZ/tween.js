@@ -137,10 +137,14 @@ TWEEN.Tween = function (object) {
 
 	};
 
+	this.getObject = function () {
+		return _object;
+	};
+
 	this.switch = function (obj) {
-		_object = obj
-		this.update(_lastUpdateTime)
-	}
+		_object = obj;
+		this.update(_lastUpdateTime);
+	};
 
 	this.start = function (time) {
 
