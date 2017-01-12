@@ -104,6 +104,7 @@ TWEEN.Tween = function (object) {
 	var _object = object;
 	var _valuesStart = {};
 	var _valuesEnd = {};
+	var _initialValuesEnd = {};
 	var _valuesStartRepeat = {};
 	var _duration = 1000;
 	var _repeat = 0;
@@ -126,6 +127,7 @@ TWEEN.Tween = function (object) {
 	this.to = function (properties, duration) {
 
 		_valuesEnd = properties;
+		_initialValuesEnd = properties;
 
 		if (duration !== undefined) {
 			_duration = duration;
@@ -223,6 +225,10 @@ TWEEN.Tween = function (object) {
 			_chainedTweens[i].stop();
 		}
 
+	};
+
+	this.getInitialValuesEnd = function () {
+		return _initialValuesEnd
 	};
 
 	this.delay = function (amount) {
